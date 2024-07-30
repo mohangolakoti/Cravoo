@@ -53,9 +53,9 @@ const Popular = () => {
             <div key={index} className='flex-shrink-0 '>
               {vendor.firm.map((item) => (
                 <Link to={`/product/${item.firmName}/${item._id}`}>
-                <div>
-                  <img src={`${API}/uploads/${item.image}`} alt="" className='md:w-[400px] w-[300px] rounded-2xl shadow-xl cursor-pointer' />
-                  <p className='mt-[-43px] text-xl rounded-2xl font-extrabold text-white px-4 py-2 relative w-full bg-gradient-to-b from-transparent to-black'>{item.offer}</p>
+                <div className='hover:scale-95'>
+                  <img src={`${API}/uploads/${item.image}`} alt="" className='md:w-[400px] w-[300px] rounded-3xl shadow-xl cursor-pointer' />
+                  <p className='mt-[-43px] text-xl rounded-3xl font-extrabold text-white px-4 py-2 relative w-full bg-gradient-to-b from-transparent to-black'>{item.offer}</p>
                   <div className='px-3 text-lg font-medium text-gray-500'>
                   <p className='text-xl mt-2 font-bold text-black'>{item.firmName}</p>
                   <p >{item.category}</p>

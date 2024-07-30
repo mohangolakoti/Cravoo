@@ -11,6 +11,7 @@ import milkshake from './images/items/milkshake.png'
 import free from './images/offers/free.png'
 import discount from './images/offers/discount.png'
 import gift from './images/offers/gift.png'
+import ice from './images/items/ice-cream.png'
 
 
 export {
@@ -25,6 +26,7 @@ export const items = [
   {img:burger,title:"burger"},
   {img:dosa,title:"dosa"},
   {img:cake,title:"cake"},
+  {img:ice,title:"IceCream"},
   {img:milkshake,title:"milkshake"},
   {img:noodles,title:"noodles"}
 ]
