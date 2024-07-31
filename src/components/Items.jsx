@@ -29,7 +29,7 @@ const Items = () => {
       <div className='flex overflow-x-hidden gap-12' ref={scrollContainerRef}>
         {items.map((item, index) => (
           <div key={index}>
-            <img src={item.img} alt="item" className='w-[150px] h-[140px] mx-30 cursor-pointer' />
+            <img src={item.img} alt="item" className='w-[150px] h-[130px] mx-30 cursor-pointer' />
             <p className='mx-[40px] my-1 capitalize text-lg font-medium font-OpenSans'>{item.title}</p>
           </div>
         ))}

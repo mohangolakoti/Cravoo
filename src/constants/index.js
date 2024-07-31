@@ -12,6 +12,9 @@ import free from './images/offers/free.png'
 import discount from './images/offers/discount.png'
 import gift from './images/offers/gift.png'
 import ice from './images/items/ice-cream.png'
+import shawarma from './images/items/shawarma.png'
+import kebab from './images/items/kebab.png'
+
 
 
 export {
@@ -28,7 +31,9 @@ export const items = [
   {img:cake,title:"cake"},
   {img:ice,title:"IceCream"},
   {img:milkshake,title:"milkshake"},
-  {img:noodles,title:"noodles"}
+  {img:noodles,title:"noodles"},
+  {img:kebab,title:"kebab"},
+  {img:shawarma,title:"shawarma"}
 ]
 
 export const navLinks = [
