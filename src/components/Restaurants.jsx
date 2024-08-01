@@ -26,7 +26,7 @@ const Restaurants = () => {
     <div className='md:mx-14 mx-8 my-20 font-OpenSans'>
       <h2 className='text-2xl font-Montserrat font-bold'>Restaurants</h2>
 
-      <div className='grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 my-5'>
+      <div className='grid xl:grid-cols-4 md:grid-cols-3 min-[500px]:grid-cols-2 gap-6 my-5'>
         {popular && popular.map((vendor)=>(
           <div className=''>
             {vendor.firm.map((item)=>(
