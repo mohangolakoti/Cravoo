@@ -11,11 +11,10 @@ const SingleRestaurant = () => {
 
     const popularRestaurants = async()=>{
         try {
-          const response = await fetch(`${API}/vendor/all-vendors`)
+          const response = await fetch(`${API}/firm/getFirm/${firmId}`)
           const newData = await response.json()
-          setPopular(newData.vendors);
-          setLoading(false)
-          console.log("This is Api data",newData.vendors)
+          setPopular(newData.firm);
+          console.log("This is Api data for single",newData.firm)
         } catch (error) {
           console.log(error)
           /* alert("Failed to fetch data") */
@@ -46,15 +45,9 @@ const SingleRestaurant = () => {
             <Nav />
             <section className='justify-center flex flex-col items-center my-2'>
             <h1 className='text-2xl font-bold '>{firmName}</h1>
-            {popular && popular.map((vendor)=>(
-                <div>
-                    {vendor.firm.filter(firmId==vendor.firmId).map((item)=>(
-                        <div>
-                            
-                        </div>
-                    ))}
-                </div>
-            ))}
+            {
+                <div>{popular.area}</div>
+            }
             {product.length > 0 ? (
                 product.map((item) => (
                     <div key={item.id}>
