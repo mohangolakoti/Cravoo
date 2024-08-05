@@ -43,20 +43,31 @@ const SingleRestaurant = () => {
     return (
         <div>
             <Nav />
-            <section className='justify-center flex flex-col items-center my-2'>
+            <section className='justify-center flex flex-col mx-72 my-10'>
             <h1 className='text-2xl font-bold '>{firmName}</h1>
-            {
-                <div>{popular.area}</div>
-            }
-            {product.length > 0 ? (
-                product.map((item) => (
-                    <div key={item.id}>
-                        {item.description}
-                    </div>
-                ))
-            ) : (
-                <p>No products found</p>
-            )}
+            
+                <div className='my-2 mt-6 border border-gray-300 py-4 px-6 rounded-3xl shadow-xl gap-1 flex flex-col'>
+                    <p className='text-xl font-bold'>{popular.offer}</p>
+                    <p className='text-lg font-semibold capitalize'>{popular.region}</p>
+                    <p className='text-lg font-medium underline text-red-500 capitalize'>{popular.category}</p>
+                    <p className='mb-4 text-gray-500'><span className='text-lg font-semibold mr-5 text-black'>Outlet </span>{popular.area}</p>
+                    <hr />
+                    <p className='font-medium text-gray-500'>30-40 mins | Free Delivery</p>
+                </div>
+                <div>
+                    <h2 className='my-2 mt-10 font-bold text-xl'>Deals for you</h2>
+                </div>
+                <div>
+                    {product.length > 0 ? (
+                        product.map((item) => (
+                            <div key={item.id}>
+                                {item.description}
+                            </div>
+                        ))
+                    ) : (
+                        <p>No products found</p>
+                    )}
+            </div>
             </section>
         </div>
     )
