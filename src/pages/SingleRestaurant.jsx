@@ -129,9 +129,9 @@ const SingleRestaurant = () => {
                     </p>
                     <p className="font-semibold">₹ {item.price}</p>
                     <p className="text-green-600 my-1 font-bold text-sm">
-                      &#9733;3.5
+                      &#9733;3.5 <span className="text-gray-500">({Math.floor(Math.random() * 200)})</span>
                     </p>
-                    <p className="capitalize">{item.description}</p>
+                    <p className="capitalize mt-3">{item.description}</p>
                   </div>
                   <div className="flex flex-col items-center">
                     <img
