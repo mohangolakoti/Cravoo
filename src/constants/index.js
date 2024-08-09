@@ -15,10 +15,10 @@ import ice from './images/items/ice-cream.png'
 import shawarma from './images/items/shawarma.png'
 import kebab from './images/items/kebab.png'
 import deals from './images/offers/deals.png'
-
+import cart from './images/offers/cart.png'
 
 export {
-  hamburger,discount,free,gift,deals
+  hamburger,discount,free,gift,deals,cart
 }
 
 export const items = [

@@ -9,13 +9,35 @@ const SingleRestaurant = () => {
   const [popular, setPopular] = useState([]);
   const { firmId } = useParams();
   const { firmName } = useParams();
-  const [count, setCount] = useState(0);
+  const [counts, setCounts] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  const increment = () => {
-    setCount(count + 1);
+  const increment = (index) => {
+    setCounts((prevCounts) => {
+      const newCounts = [...prevCounts];
+      newCounts[index] += 1;
+      var totals=1
+      counts.forEach(count =>{
+        totals+=count
+        setTotal(totals)
+      })
+      return newCounts;
+    });
   };
-  const decrement = () => {
-    setCount(count - 1);
+
+  const decrement = (index) => {
+    setCounts((prevCounts) => {
+      const newCounts = [...prevCounts];
+      if (newCounts[index] > 0) {
+        newCounts[index] -= 1;
+      }
+      var totals=0
+      counts.forEach(count =>{
+        totals+=count
+        setTotal(totals)
+      })
+      return newCounts;
+    });
   };
 
   const popularRestaurants = async () => {
@@ -39,6 +61,8 @@ const SingleRestaurant = () => {
       const response = await fetch(`${API}/product/${firmId}/products`);
       const newData = await response.json();
       setProduct(newData.products);
+      // Initialize counts array with zeros for each product
+      setCounts(new Array(newData.products.length).fill(0));
       console.log(newData.products);
     } catch (error) {
       console.log("Failed to fetch", error);
@@ -51,7 +75,7 @@ const SingleRestaurant = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <Nav />
+      <Nav total={total}/>
       <section className="justify-center flex flex-col sm:w-4/6 w-5/6 my-10">
         <h1 className="text-2xl font-bold font-Montserrat">{firmName}</h1>
 
@@ -117,19 +141,19 @@ const SingleRestaurant = () => {
             -- MENU --
           </h2>
           {product.length > 0 ? (
-            product.map((item) => (
-              <div>
-                <div
-                  key={item.id}
-                  className="flex my-10 justify-between font-OpenSans"
-                >
-                  <div className="">
+            product.map((item, index) => (
+              <div key={item.id}>
+                <div className="flex my-10 justify-between font-OpenSans">
+                  <div>
                     <p className="text-lg font-bold capitalize">
                       {item.productName}
                     </p>
                     <p className="font-semibold">₹ {item.price}</p>
                     <p className="text-green-600 my-1 font-bold text-sm">
-                      &#9733;3.5 <span className="text-gray-500">({Math.floor(Math.random() * 200)})</span>
+                      &#9733;3.5{" "}
+                      <span className="text-gray-500">
+                        ({Math.floor(Math.random() * 200)})
+                      </span>
                     </p>
                     <p className="capitalize mt-3">{item.description}</p>
                   </div>
@@ -140,22 +164,26 @@ const SingleRestaurant = () => {
                       alt="img"
                     />
                     <span
-                      onClick={count == 0 ? increment : ""}
-                      className="flex gap-2 bg-white text-green-600 border border-gray-300 w-fit px-8 py-1 mt-[-16px] font-semibold rounded-lg hover:bg-gray-200 cursor-pointer"
+                      className="flex justify-center bg-white text-green-600 border border-gray-300  mt-[-16px] font-semibold rounded-lg cursor-pointer"
                     >
                       <button
-                        onClick={decrement}
-                        className={`${count > 0 ? "block" : "hidden"}`}
+                        onClick={() => decrement(index)}
+                        className={`${counts[index] > 0 ? "block" : "hidden"} hover:bg-gray-300 px-3 py-1 w-full rounded-l-lg`}
                       >
                         -
                       </button>
-                      <button className={`${count==0 ? 'block':'hidden'}`}>ADD</button>
-                      <span className={`${count > 0 ? "block" : "hidden"}`}>
-                        {count}
+                      <button
+                        className={`${counts[index] === 0 ? "block" : "hidden"} rounded-lg hover:bg-gray-300 px-8 py-1`}
+                        onClick={() => increment(index)}
+                      >
+                        ADD
+                      </button>
+                      <span className={`${counts[index] > 0 ? "block" : "hidden"} px-3 py-1 w-full rounded-lg`}>
+                        {counts[index]}
                       </span>
                       <button
-                        onClick={increment}
-                        className={`${count > 0 ? "block" : "hidden"}`}
+                        onClick={() => increment(index)}
+                        className={`${counts[index] > 0 ? "block" : "hidden"} hover:bg-gray-300 px-3 py-1 w-full rounded-r-lg`}
                       >
                         +
                       </button>

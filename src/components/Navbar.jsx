@@ -1,8 +1,8 @@
 import {React, useState} from 'react'
 import {Link} from 'react-router-dom';
-import { hamburger, navLinks } from '../constants/index';
+import { cart, hamburger, navLinks } from '../constants/index';
 
-const Nav = () => {
+const Nav = ({total}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toogleNavbar = () => {
@@ -27,8 +27,12 @@ const Nav = () => {
               </li>
             ))}
           </ul>
-          <div className="flex justify-center text-lg items-center max-lg:hidden text-[#C8553D]">
-                <Link to='/register'><span className="cursor-pointer bg-red-500 text-white px-6 py-2 rounded-full">
+          <div className="flex gap-4 justify-center text-lg items-center max-lg:hidden text-[#f75839]">
+            <div>
+              <img src={cart} alt="" className='w-[39px]' />
+              <p className='absolute top-[23px] ml-[15px] text-sm'>{total}</p>
+            </div>
+                <Link to='/register'><span className="cursor-pointer bg-[#f75839] text-white px-6 py-2 rounded-full">
                   SignUp
                 </span></Link>
           </div>
