@@ -30,7 +30,7 @@ const Nav = ({total}) => {
           <div className="flex gap-4 justify-center text-lg items-center max-lg:hidden text-[#f75839]">
             <div>
               <img src={cart} alt="" className='w-[39px]' />
-              <p className='absolute top-[23px] ml-[15px] text-sm'>{total}</p>
+              <p className='absolute top-[23px] ml-[17px] text-sm'>{total}</p>
             </div>
                 <Link to='/register'><span className="cursor-pointer bg-[#f75839] text-white px-6 py-2 rounded-full">
                   SignUp
