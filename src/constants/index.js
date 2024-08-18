@@ -1,4 +1,4 @@
-import { hamburger } from "../../../dashboard/src/vendorDashboard/constants"
+import hamburger from './hamburger.png'
 import biryani from './images/items/biryani.png'
 import chicken from './images/items/chicken.png'
 import noodles from './images/items/noodles.png'
